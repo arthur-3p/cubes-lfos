@@ -1,0 +1,190 @@
+cps(180/4/60)
+
+do
+  d1
+    $ striate 4
+    $ slow 8
+    $ n "[d5] [g5] [a4] [a6] [d5] [c6] [e5] [f5]"
+    # s "2"
+    # sustain 10
+    # gain 0.5
+  d2 $ silence
+  d3 $ silence
+  d4 $ silence
+  d5 $ silence
+
+do
+  t1 (xfade)
+    $ slow 8
+    $ n "[d5 d5] [g5 e5] [a4] [a6] [d5 f5] [c6 a5] [e5] [f5 e5]"
+    # s "2"
+    # sustain 10
+    # gain 0.5
+  d2 $ silence
+  d3 $ silence
+  d4 $ silence
+  d5 $ silence
+  d9 $ silence
+
+do
+  d3
+    $ every 8 (trunc "0.75")
+    $ stack [
+    within (0, 0.25) (# speed "0.8") $ sound "drum(3,8)",
+    every 4 (# speed "3") $ sound "kicklinn(3,8)",
+    every 4 (striate 12) $ every 4 (0.5<~) $ gain "[0.7]*16" # sound "electro1 [808:1]",
+    sound "808sd(5,8)" #  n (irand 20)]
+
+do
+  d3
+    $ every 8 (trunc "0.75")
+    $ stack [
+    within (0, 0.25) (# speed "0.8") $ sound "drum(3,8)",
+    every 4 (# speed "3") $ sound "kicklinn(3,8)",
+    every 4 (striate 12) $ every 4 (0.5<~) $ gain "[0.7]*16" # sound "electro1 [808:1]",
+    sound "808sd(5,8)" #  n (irand 20)]
+  d5
+    $ stack [
+      jux (palindrome) $ sound "808bd:4(3,8)" # gain 1.25 # speed 0.92
+    ]
+
+do
+  d3
+    $ every 3 (linger 0.25)
+    $ jux (palindrome)
+    $ every 8 (trunc "0.75")
+    $ stack [
+    within (0, 0.25) (# speed "0.8") $ sound "drum(3,8)",
+    fast 2 $ every 4 (# speed "3") $ sound "kicklinn(3,8)",
+    every 4 (striate 12) $ every 4 (0.5<~) $ gain "[0.7]*16" # sound "electro1 [808:1]",
+    every 4 (fast 8) $ sound "808sd(2,8)" #  n (irand 20)
+    ]
+  d5
+    $ stack [
+      jux (palindrome) $ sound "808bd:4(3,8)" # gain 1.25 # speed 0.92,
+      fast 8 $ stut 2 0.2 0.5 $ sound "tablame" # speed 0.7 #  n (irand 4)
+    ]
+
+do
+  t1 (jump)
+    $ slow 8
+    $ n "[d5] [a4] [d5] [e5]"
+    # s "2"
+    # sustain 10
+    # gain 0
+  d3
+    $ every 3 (linger 0.25)
+    $ jux (palindrome)
+    $ every 8 (trunc "0.75")
+    $ stack [
+    within (0, 0.25) (# speed "0.8") $ sound "drum(3,8)",
+    fast 2 $ every 4 (# speed "3") $ sound "kicklinn(3,8)",
+    every 4 (striate 12) $ every 4 (0.5<~) $ gain "[0.7]*16" # sound "electro1 [808:1]",
+    every 4 (fast 8) $ sound "808sd(2,8)" #  n (irand 20)
+    ]
+  d5
+    $ stack [
+      fast 8 $ stut 2 0.2 0.5 $ sound "tablame" # speed 0.7 #  n (irand 4)
+    ]
+
+do
+  t1 (jump)
+    $ slow 8
+    $ n "[d5] [a4] [d5] [e5]"
+    # s "2"
+    # sustain 10
+    # gain 0.3
+  d3
+    $ slow 2
+    $ every 3 (linger 0.25)
+    $ jux (palindrome)
+    $ every 8 (trunc "0.75")
+    $ stack [
+    within (0, 0.25) (# speed "0.8") $ sound "drum(3,8)",
+    fast 2 $ every 4 (# speed "3") $ sound "kicklinn(3,8)",
+    every 4 (striate 12) $ every 4 (0.5<~) $ gain "[0.7]*16" # sound "electro1 [808:1]",
+    every 4 (fast 8) $ sound "808sd(2,8)" #  n (irand 20)
+    ]
+  d5
+    $ every 4 (fast 2)
+    $ stack [
+      fast 8 $ stut 2 0.2 0.5 $ sound "tablame" # speed 0.7 #  n (irand 4)
+    ]
+
+do
+  t1 (xfadeIn 16)
+    $ slow 4
+    $ stut 4 0.05 (1/32)
+    $ n "[d3 e4 g4 f4 d5 e4 g5 f5, d5 d5] [g3 e4 g5 f4 d4 a5 g5 f5, g5 e5] [a3 d4 g4 f4 d5 e4 g5 f5, c5] [a3 e4 g5 f4 d5 e4 g5 f5, f4 d4]"
+    # s "[1]"
+    # sustain 2
+    # gain 0.7
+  d3
+    $ slow 2
+    $ every 3 (linger 0.25)
+    $ jux (palindrome)
+    $ every 8 (trunc "0.75")
+    $ stack [
+    within (0, 0.25) (# speed "0.8") $ sound "drum(3,8)",
+    fast 2 $ every 4 (# speed "3") $ sound "kicklinn(3,8)",
+    every 4 (striate 12) $ every 4 (0.5<~) $ gain "[0.7]*16" # sound "electro1 [808:1]",
+    every 4 (fast 8) $ sound "808sd(2,8)" #  n (irand 20)
+    ]
+  d5
+    $ every 4 (fast 2)
+    $ stack [
+      fast 8 $ stut 2 0.2 0.5 $ sound "tablame" # speed 0.7 #  n (irand 4)
+    ]
+
+do
+  t1 (jump)
+    $ slow 4
+    $ stut 4 0.05 (1/32)
+    $ n "[d3 e4 g4 f4 d5 e4 g5 f5, d5 d5] [g3 e4 g5 f4 d4 a5 g5 f5, g5 e5] [a3 d4 g4 f4 d5 e4 g5 f5, c5] [a3 e4 g5 f4 d5 e4 g5 f5, f4 d4]"
+    # s "[1]"
+    # sustain 2
+    # gain 0.9
+  t3 (jump) $ silence
+  t5 (jump) $ silence
+
+do
+  t1 (jump)
+    $ slow 4
+    $ stut 4 0.05 (1/32)
+    $ n "[d3 e4 g4 f4 d5 e4 g5 f5, d5 d5] [g3 e4 g5 f4 d4 a5 g5 f5, g5 e5] [a3 d4 g4 f4 d5 e4 g5 f5, c5] [a3 e4 g5 f4 d5 e4 g5 f5, f4 d4]"
+    # s "[1]"
+    # sustain 2
+    # gain 0.8
+  d3
+    $ every 3 (linger 0.25)
+    $ jux (palindrome)
+    $ every 8 (trunc "0.75")
+    $ stack [
+    within (0, 0.25) (# speed "0.8") $ sound "drum(3,8)",
+    fast 2 $ every 4 (# speed "3") $ sound "kicklinn(3,8)",
+    every 4 (striate 12) $ every 4 (0.5<~) $ gain "[0.7]*16" # sound "electro1 [808:1]",
+    every 4 (fast 8) $ sound "808sd(2,8)" #  n (irand 20)
+    ]
+  d5
+    $ stack [
+      jux (palindrome) $ sound "808bd:4(3,8)" # gain 1.25 # speed 0.92,
+      fast 8 $ stut 2 0.2 0.5 $ sound "tablame" # speed 0.7 #  n (irand 4)
+    ]
+
+do
+  d1 $ silence
+  d3
+    $ every 3 (linger 0.25)
+    $ jux (palindrome)
+    $ every 8 (trunc "0.75")
+    $ stack [
+    within (0, 0.25) (# speed "0.8") $ sound "drum(3,8)",
+    fast 2 $ every 4 (# speed "3") $ sound "kicklinn(3,8)",
+    every 4 (striate 12) $ every 4 (0.5<~) $ gain "[0.7]*16" # sound "electro1 [808:1]",
+    every 4 (fast 8) $ sound "808sd(2,8)" #  n (irand 20)
+    ]
+  d5
+    $ stack [
+      jux (palindrome) $ sound "808bd:4(3,8)" # gain 1.25 # speed 0.92,
+      fast 8 $ stut 2 0.2 0.5 $ sound "tablame" # speed 0.7 #  n (irand 4)
+    ]
